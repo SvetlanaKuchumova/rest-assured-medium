@@ -1,6 +1,6 @@
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType; //Для проверки ContentType ответа
-import static io.restassured.RestAssured.given; // Для отправки параметров в given()
+import static io.restassured.RestAssured.given; // Для отправки параметров на baseURI в given()
 import static org.hamcrest.Matchers.*; //для использования equalTo при проверке body. Можно заменить на org.hamcrest.Matchers.equalTo;
 
 import io.restassured.response.Response;
@@ -42,5 +42,6 @@ public class GetRequest {
 
         String headersHost = response.path("headers.host");
         System.out.println(headersHost);
+        response.prettyPrint();
     }
 }
