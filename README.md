@@ -1,0 +1,2 @@
+##Run
+mvn clean test
