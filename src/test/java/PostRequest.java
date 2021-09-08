@@ -28,8 +28,10 @@ public class PostRequest {
                 .body("headers.Content-Length", equalTo("64"))
                 .extract().response();
 
+        System.out.println("POST REQUEST");
+        System.out.println("Response body from POST request:");
         response.prettyPrint();
         String origin= response.path("origin");
-        System.out.println(origin);
+        System.out.println("origin: " + origin);
     }
 }

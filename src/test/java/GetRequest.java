@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class GetRequest {
     @Test
-    public void getWithoutExtract() {
+    public void getWithoutExtractData() {
         RestAssured.baseURI = "https://postman-echo.com";
 
         given()
@@ -25,7 +25,7 @@ public class GetRequest {
     }
 
     @Test
-    public void getWithExtract() {
+    public void getWithExtractData() {
         RestAssured.baseURI = "https://postman-echo.com";
 
         Response response = given()
@@ -40,8 +40,10 @@ public class GetRequest {
                 .body("headers.x-forwarded-proto", equalTo("https"))
                 .extract().response();
 
+        System.out.println("GET REQUEST");
         String headersHost = response.path("headers.host");
-        System.out.println(headersHost);
+        System.out.println("headersHost: " + headersHost);
+        System.out.println("Response body from Get request:");
         response.prettyPrint();
     }
 }
